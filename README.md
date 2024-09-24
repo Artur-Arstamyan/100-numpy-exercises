@@ -57,7 +57,8 @@ Memory address of 8: 2426869300160
 ## np.random.rand vs np.random.random  
 Syntax:  
 - np.random.rand takes separate arguments for each dimension (e.g., np.random.rand(2, 3)).    
-- np.random.random takes a tuple as its size argument (e.g., np.random.random((2, 3))).    
+- np.random.random takes a tuple as its size argument (e.g., np.random.random((2, 3))).  
+
 Flexibility:  
 - np.random.rand is slightly more convenient for quick use when you want to specify dimensions without needing to wrap them in a tuple.  
 - np.random.random is more flexible if you are dynamically setting the shape using a tuple, which might be useful in certain programming contexts.  
