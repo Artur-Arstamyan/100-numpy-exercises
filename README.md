@@ -62,3 +62,9 @@ Syntax:
 Flexibility:  
 - np.random.rand is slightly more convenient for quick use when you want to specify dimensions without needing to wrap them in a tuple.  
 - np.random.random is more flexible if you are dynamically setting the shape using a tuple, which might be useful in certain programming contexts.  
+## Floating-point numbers in Python  
+The comparison ```0.3 == 3 * 0.1``` returns False due to the limitations of floating-point arithmetic in representing decimal numbers exactly. This issue can be mitigated by using functions like ```math.isclose()``` or ```numpy.isclose()``` to compare floating-point numbers with a tolerance.  
+```
+import math  
+print(math.isclose(0.3, 3 * 0.1))  
+# Output: True```
