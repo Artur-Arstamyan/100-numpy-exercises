@@ -110,6 +110,8 @@ Flexibility:
    ```python
    print(0.3 == 3 * 0.1)
    # Output: False
+   ```
+   ```python
    import math  
    print(math.isclose(0.3, 3 * 0.1))  
    # Output: True
