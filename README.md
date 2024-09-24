@@ -151,7 +151,7 @@ Z = np.array([4, 3, 10, 2], dtype=np.int64)
    array([  8,  4, 512,  2])
    ```
    - The left shift operation `<<` shifts the bits of the number to the left, effectively multiplying by 2^n, where 𝑛 is the number of positions to shift.
-   - Here, `2 << Z` shifts `2` left by each value in `Z`, and then `>> 2` shifts the result back right by 2.  
+   - Here, `2 << Z` shifts `2` left by each value in `Z`, and then `>> 2` shifts the result back right by 2.    
    Calculating:
    - `2 << 4` is 2×16=32 then 32>>2=8
    - `2 << 3` is 2×8=16 then 16>>2=4
