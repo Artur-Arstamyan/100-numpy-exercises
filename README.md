@@ -20,9 +20,10 @@ This work is licensed under the MIT license.
 ### Variants in Other Languages
 
  - **Julia**: [100 Julia Exercises](https://github.com/RoyiAvital/Julia100Exercises).
+
 # More knowledge from exercises  
 ## Exercise N9 - Code proof of a statement that if an array a is Fortran-contiguous, it's stored in column-major order in memory
-```
+```python
 import ctypes  
 import numpy as np  
 
@@ -71,9 +72,45 @@ Flexibility:
    import numpy as np
    print(0 * np.nan)  # nan
    ```
-The comparison ```0.3 == 3 * 0.1``` returns False due to the limitations of floating-point arithmetic in representing decimal numbers exactly. This issue can be mitigated by using functions like ```math.isclose()``` or ```numpy.isclose()``` to compare floating-point numbers with a tolerance.  
-```
-import math  
-print(math.isclose(0.3, 3 * 0.1))  
-# Output: True
-```
+2. **`np.nan == np.nan`**
+   - **Result**: `False`
+   - **Explanation**: According to the IEEE 754 standard for floating-point arithmetic, `NaN` is **not equal** to anything, including itself. Therefore, the expression `np.nan == np.nan` evaluates to `False`.
+
+   ```python
+   import numpy as np
+   print(np.nan == np.nan)  # False
+   ```
+3. **`np.inf > np.nan`**
+   - **Result**: `False`
+   - **Explanation**: Comparisons involving `NaN` always return `False`. Even though `np.inf` represents infinity, any comparison with `NaN` results in `False` because `NaN` is not comparable.
+
+   ```python
+   import numpy as np
+   print(np.inf > np.nan)  # False
+   ```
+4. **`np.nan - np.nan`**
+   - **Result**: `nan`
+   - **Explanation**: Any arithmetic operation involving `NaN` results in `NaN`. Therefore, subtracting `NaN` from `NaN` still gives `NaN`.
+
+   ```python
+   import numpy as np
+   print(np.nan - np.nan)  # nan
+   ```
+5. **`np.nan in set([np.nan])`**
+   - **Result**: `True`
+   - **Explanation**: Although `np.nan != np.nan`, Python's `set` checks membership using object identity (the `is` operator). Since the `NaN` in the set is the same object as the one being checked, the membership test returns `True`.
+
+   ```python
+   import numpy as np
+   print(np.nan in set([np.nan]))  # True
+   ```
+6. **`0.3 == 3 * 0.1`**
+   - **Result**: `False`
+   - **Explanation**: Due to floating-point precision errors, the expression `3 * 0.1` does not exactly equal `0.3`. Instead, it evaluates to `0.30000000000000004`, which is not equal to `0.3`. This is a common issue in floating-point arithmetic which can be mitigated by using functions like ```math.isclose()``` or ```numpy.isclose()``` to compare floating-point numbers with a tolerance.
+   ```python
+   print(0.3 == 3 * 0.1)
+   # Output: False
+   import math  
+   print(math.isclose(0.3, 3 * 0.1))  
+   # Output: True
+   ```
