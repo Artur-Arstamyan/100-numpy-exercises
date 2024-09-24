@@ -157,13 +157,13 @@ Z = np.array([4, 3, 10, 2], dtype=np.int64)
    - `2 << 3` is 2×8=16 then 16>>2=4
    - `2 << 10` is 2×1024=2048 then 2048>>2=512
    - `2 << 2` is 2×4=8 then 8>>2=2
-3. **In-Place Negation**
+3. **In-Place Negation Comparison**
    ```python
    Z <- Z
    # Output: 
-   array([-4, -3, -10, -2])
+   array([False, False, False, False])
    ```
-   This operation negates the values in `Z` in place. However, it will not change the original array unless you assign it back to `Z`.
+   The expression `Z < -Z` checks each element in `Z` to see if it is less than its negation. Since no positive number is less than its negative counterpart, the result is a boolean array of `False` values.
 4. **Complex Numbers**
    ```python
    1j * Z
@@ -182,6 +182,7 @@ Z = np.array([4, 3, 10, 2], dtype=np.int64)
    ```python
    Z < Z > Z
    # Output: 
-   False
+   ValueError: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()
    ```
-   This operation involves chained comparisons. However, it’s worth noting that chained comparisons like this do not work as expected in NumPy. Instead, it will return `False` because no element in `Z` is less than itself and greater than itself simultaneously.
+   To compare values in NumPy arrays, check each condition separately or use logical operators for combined checks.
+   You cannot directly chain comparisons on NumPy arrays like you can with scalars.
