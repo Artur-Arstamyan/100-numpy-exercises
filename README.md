@@ -116,7 +116,7 @@ Flexibility:
    print(math.isclose(0.3, 3 * 0.1))  
    # Output: True
    ```
-## Exercise N26 - Pythonn sum(range(5), -1) vs NumPy's sum(range(5), -1)
+## Exercise N26 - Python sum(range(5), -1) vs NumPy's sum(range(5), -1)
 1. **Using the built-in Python `sum` function:**
    ```python
    print(sum(range(5), -1))
@@ -124,7 +124,7 @@ Flexibility:
    - `range(5)` generates the numbers `[0, 1, 2, 3, 4]`.  
    - The `sum` function adds these numbers together, starting with the initial value of `-1` (the second argument).  
    - Calculation: `0 + 1 + 2 + 3 + 4 + (-1) = 10 - 1 = 9`.  
-3. **Using NumPy's `sum` function:**
+2. **Using NumPy's `sum` function:**
    ```python
    from numpy import *  
    print(sum(range(5), -1))
@@ -133,3 +133,55 @@ Flexibility:
    - When using NumPy's `sum`, the second argument (`-1`) is treated as the `axis` parameter instead of an initial value.
    - Since `range(5)` is a one-dimensional iterable, the `sum` will compute the total of the elements without any influence from the `-1` parameter.
    - Calculation: `0 + 1 + 2 + 3 + 4 = 10`.
+## Exercise N27 
+```python
+import numpy as np
+Z = np.array([4, 3, 10, 2], dtype=np.int64)
+```
+1. **Element-wise Exponentiation**
+   ```python
+   Z ** Z
+   # Output(Each element raised to the power of itself):
+   array([         256,          27, 10000000000,           4])
+   ```
+2. **Bitwise Left Shift and Right Shift**
+   ```python
+   2 << Z >> 2
+   # Output: 
+   array([  8,  4, 512,  2])
+   ```
+   - The left shift operation `<<` shifts the bits of the number to the left, effectively multiplying by 2^n, where 𝑛 is the number of positions to shift.
+   - Here, `2 << Z` shifts `2` left by each value in `Z`, and then `>> 2` shifts the result back right by 2.
+   Calculating:
+   - `2 << 4` is 2×16=32 then 32>>2=8
+   - `2 << 3` is 2×8=16 then 16>>2=4
+   - `2 << 10` is 2×1024=2048 then 2048>>2=512
+   - `2 << 2` is 2×4=8 then 8>>2=2
+3. **In-Place Negation**
+   ```python
+   Z <- Z
+   # Output: 
+   array([-4, -3, -10, -2])
+   ```
+   This operation negates the values in `Z` in place. However, it will not change the original array unless you assign it back to `Z`.
+4. **Complex Numbers**
+   ```python
+   1j * Z
+   # Output: 
+   array([0.+4.j, 0.+3.j, 0.+10.j, 0.+2.j])
+   ```
+   This operation creates a complex array with the imaginary unit `1j` multiplied by each element in `Z`.
+5. **Division**
+   ```python
+   Z / 1 / 1
+   # Output: 
+   array([4., 3., 10., 2.])
+   ```
+   This operation divides each element in `Z` by `1` twice, which effectively leaves `Z` unchanged.
+6. **Comparison and Logical Operations**
+   ```python
+   Z < Z > Z
+   # Output: 
+   False
+   ```
+   This operation involves chained comparisons. However, it’s worth noting that chained comparisons like this do not work as expected in NumPy. Instead, it will return `False` because no element in `Z` is less than itself and greater than itself simultaneously.
