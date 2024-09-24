@@ -22,7 +22,7 @@ This work is licensed under the MIT license.
  - **Julia**: [100 Julia Exercises](https://github.com/RoyiAvital/Julia100Exercises).
 
 ## Code proof of a statement that if an array a is Fortran-contiguous, it's stored in column-major order in memory
-import ctypes  
+```import ctypes  
 import numpy as np  
 
 arr = np.arange(9).reshape(3, 3, order='F')  
@@ -36,7 +36,7 @@ for i in range(9):
     value = ctypes.cast(memory_address, ctypes.POINTER(ctypes.c_int32)).contents.value  
     
     print(f"Memory address of {value}: {memory_address}")  
-
+```
 ### Output
 [[0 3 6]  
  [1 4 7]  
