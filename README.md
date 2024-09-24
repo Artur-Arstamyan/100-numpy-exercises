@@ -20,8 +20,8 @@ This work is licensed under the MIT license.
 ### Variants in Other Languages
 
  - **Julia**: [100 Julia Exercises](https://github.com/RoyiAvital/Julia100Exercises).
-
-## Code proof of a statement that if an array a is Fortran-contiguous, it's stored in column-major order in memory
+# More knowledge from exercises  
+## Exercise N9 - Code proof of a statement that if an array a is Fortran-contiguous, it's stored in column-major order in memory
 ```
 import ctypes  
 import numpy as np  
@@ -54,17 +54,18 @@ Memory address of 6: 2426869300152
 Memory address of 7: 2426869300156  
 Memory address of 8: 2426869300160
 ```
-## np.random.rand vs np.random.random  
+## Exercise N12 - np.random.rand vs np.random.random  
 Syntax:  
 - np.random.rand takes separate arguments for each dimension (e.g., np.random.rand(2, 3)).    
 - np.random.random takes a tuple as its size argument (e.g., np.random.random((2, 3))).  
 
 Flexibility:  
 - np.random.rand is slightly more convenient for quick use when you want to specify dimensions without needing to wrap them in a tuple.  
-- np.random.random is more flexible if you are dynamically setting the shape using a tuple, which might be useful in certain programming contexts.  
-## Floating-point numbers in Python  
+- np.random.random is more flexible if you are dynamically setting the shape using a tuple, which might be useful in certain programming contexts.
+## Exercise N17 - Floating-point numbers in Python  
 The comparison ```0.3 == 3 * 0.1``` returns False due to the limitations of floating-point arithmetic in representing decimal numbers exactly. This issue can be mitigated by using functions like ```math.isclose()``` or ```numpy.isclose()``` to compare floating-point numbers with a tolerance.  
 ```
 import math  
 print(math.isclose(0.3, 3 * 0.1))  
-# Output: True```
+# Output: True
+```
