@@ -116,3 +116,20 @@ Flexibility:
    print(math.isclose(0.3, 3 * 0.1))  
    # Output: True
    ```
+## Exercise N26 - Pythonn sum(range(5), -1) vs NumPy's sum(range(5), -1)
+1. **Using the built-in Python `sum` function:**
+   ```python
+   print(sum(range(5), -1))
+   ```  
+   - `range(5)` generates the numbers `[0, 1, 2, 3, 4]`.  
+   - The `sum` function adds these numbers together, starting with the initial value of `-1` (the second argument).  
+   - Calculation: `0 + 1 + 2 + 3 + 4 + (-1) = 10 - 1 = 9`.  
+3. **Using NumPy's `sum` function:**
+   ```python
+   from numpy import *  
+   print(sum(range(5), -1))
+   ```  
+   - `range(5)` still generates `[0, 1, 2, 3, 4]`.  
+   - When using NumPy's `sum`, the second argument (`-1`) is treated as the `axis` parameter instead of an initial value.
+   - Since `range(5)` is a one-dimensional iterable, the `sum` will compute the total of the elements without any influence from the `-1` parameter.
+   - Calculation: `0 + 1 + 2 + 3 + 4 = 10`.
