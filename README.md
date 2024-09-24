@@ -63,6 +63,14 @@ Flexibility:
 - np.random.rand is slightly more convenient for quick use when you want to specify dimensions without needing to wrap them in a tuple.  
 - np.random.random is more flexible if you are dynamically setting the shape using a tuple, which might be useful in certain programming contexts.
 ## Exercise N17 - Floating-point numbers in Python  
+1. **`0 * np.nan`**:
+   - **Result**: `nan`
+   - **Explanation**: In floating-point arithmetic, any operation involving `NaN` results in `NaN`, regardless of the other operand. So multiplying `0` by `NaN` results in `NaN`.
+
+   ```python
+   import numpy as np
+   print(0 * np.nan)  # nan
+   ```
 The comparison ```0.3 == 3 * 0.1``` returns False due to the limitations of floating-point arithmetic in representing decimal numbers exactly. This issue can be mitigated by using functions like ```math.isclose()``` or ```numpy.isclose()``` to compare floating-point numbers with a tolerance.  
 ```
 import math  
