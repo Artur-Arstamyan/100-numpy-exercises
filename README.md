@@ -186,3 +186,31 @@ Z = np.array([4, 3, 10, 2], dtype=np.int64)
    ```
    To compare values in NumPy arrays, check each condition separately or use logical operators for combined checks.
    You cannot directly chain comparisons on NumPy arrays like you can with scalars.
+## Exercise N46 - Structured Arrays  
+**Key Features of a Structured Array:**  
+- **Fields:** A structured array can have named fields (like columns in a table), and each field can store data of different types.
+- **Heterogeneous Data:** The fields can have different types, such as integers, floats, strings, etc., in the same array.
+- **Accessing Fields:** You can access individual fields by their names, which makes the data easy to work with.
+Structured arrays are defined by specifying a `dtype` that lists the field names and corresponding data types.
+```python
+import numpy as np
+
+# Define the dtype with field names and types
+dtype = [('name', 'U10'), ('age', 'i4'), ('weight', 'f4')]
+
+# Create a structured array with that dtype
+data = np.array([('Alice', 25, 55.0), 
+                 ('Bob', 30, 85.5), 
+                 ('Charlie', 35, 77.2)], dtype=dtype)
+**data[1][1] = 11**
+# Print the structured array
+print(data) 
+print(data.dtype)
+**print(data[1][1].flags.writeable)**
+```
+### Output
+```
+[('Alice', 25, 55. ) ('Bob', **11**, 85.5) ('Charlie', 35, 77.2)]
+[('name', '<U10'), ('age', '<i4'), ('weight', '<f4')]
+**False**
+'''
