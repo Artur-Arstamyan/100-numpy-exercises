@@ -213,4 +213,4 @@ print(data[1][1].flags.writeable)
 [('Alice', 25, 55. ) ('Bob', 11, 85.5) ('Charlie', 35, 77.2)]
 [('name', '<U10'), ('age', '<i4'), ('weight', '<f4')]
 False
-'''
+```
