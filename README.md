@@ -214,3 +214,40 @@ print(data[1][1].flags.writeable)
 [('name', '<U10'), ('age', '<i4'), ('weight', '<f4')]
 False
 ```
+## Exercise N53
+```python
+A = np.array([1.5, 2.7, 3.6, 4.44], dtype=np.float32)
+B = A.view(np.int32)
+```
+**A and B read values of the same memory address**
+```python
+print('A: ', A, A.dtype, A.ctypes.data)   # A reads it as float32 - [1.5, 2.7, 3.6, 4.44]
+print('B: ', B, B.dtype, B.ctypes.data)   # B reads it as int32 - [1069547520, 1076677837, 1080452710, 1083053179]
+```
+**Output**
+```
+A:  [1.5  2.7  3.6  4.44] float32 1745310614272
+B:  [1069547520 1076677837 1080452710 1083053179] int32 1745310614272
+```
+**Making B read it as A does changes the value of the memory address**
+```python
+B[:] = A
+print('A: ', A, A.dtype, A.ctypes.data)   # so now B will read it as [1, 2, 3, 4]
+print('B: ', B, B.dtype, B.ctypes.data)   # and A will read it as something corresponding to their float32
+```
+**Output**
+```
+A:  [1.e-45 3.e-45 4.e-45 6.e-45] float32 1745310614272
+B:  [1 2 3 4] int32 1745310614272
+```
+**Making B read it as [1069547520, 1076677837, 1080452710, 1083053179] again will cause A to read it as [1.5, 2.7, 3.6, 4.44] again**
+```python
+B[:] = [1069547520, 1076677837, 1080452710, 1083053179]
+print('A: ', A, A.dtype, A.ctypes.data)  # so now B will read it as [1069547520, 1076677837, 1080452710, 1083053179]
+print('B: ', B, B.dtype, B.ctypes.data)  # and A will read it as something corresponding to their int32 which is [1.5, 2.7, 3.6, 4.44]
+```
+**Output**
+```
+A:  [1.5  2.7  3.6  4.44] float32 1745310614272
+B:  [1069547520 1076677837 1080452710 1083053179] int32 1745310614272
+```
