@@ -190,7 +190,7 @@ Z = np.array([4, 3, 10, 2], dtype=np.int64)
 **Key Features of a Structured Array:**  
 - **Fields:** A structured array can have named fields (like columns in a table), and each field can store data of different types.
 - **Heterogeneous Data:** The fields can have different types, such as integers, floats, strings, etc., in the same array.
-- **Accessing Fields:** You can access individual fields by their names, which makes the data easy to work with.
+- **Accessing Fields:** You can access individual fields by their names, which makes the data easy to work with.  
 Structured arrays are defined by specifying a `dtype` that lists the field names and corresponding data types.
 ```python
 import numpy as np
@@ -202,15 +202,15 @@ dtype = [('name', 'U10'), ('age', 'i4'), ('weight', 'f4')]
 data = np.array([('Alice', 25, 55.0), 
                  ('Bob', 30, 85.5), 
                  ('Charlie', 35, 77.2)], dtype=dtype)
-**data[1][1] = 11**
+data[1][1] = 11
 # Print the structured array
 print(data) 
 print(data.dtype)
-**print(data[1][1].flags.writeable)**
+print(data[1][1].flags.writeable)
 ```
-### Output
+**Output**
 ```
-[('Alice', 25, 55. ) ('Bob', **11**, 85.5) ('Charlie', 35, 77.2)]
+[('Alice', 25, 55. ) ('Bob', 11, 85.5) ('Charlie', 35, 77.2)]
 [('name', '<U10'), ('age', '<i4'), ('weight', '<f4')]
-**False**
+False
 '''
