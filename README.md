@@ -40,7 +40,7 @@ for i in range(9):
     print(f"Memory address of {value}: {memory_address}")  
 ```
 
-### Output
+**Output**
 ```
 [[0 3 6]  
  [1 4 7]  
@@ -240,7 +240,8 @@ print('B: ', B, B.dtype, B.ctypes.data)   # and A will read it as something corr
 A:  [1.e-45 3.e-45 4.e-45 6.e-45] float32 1745310614272
 B:  [1 2 3 4] int32 1745310614272
 ```
-**Making B read it as [1069547520, 1076677837, 1080452710, 1083053179] again will cause A to read it as [1.5, 2.7, 3.6, 4.44] again**
+**Making B read it as [1069547520, 1076677837, 1080452710, 1083053179] again  
+will cause A to read it as [1.5, 2.7, 3.6, 4.44] again**
 ```python
 B[:] = [1069547520, 1076677837, 1080452710, 1083053179]
 print('A: ', A, A.dtype, A.ctypes.data)  # so now B will read it as [1069547520, 1076677837, 1080452710, 1083053179]
