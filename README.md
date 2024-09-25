@@ -22,7 +22,7 @@ This work is licensed under the MIT license.
  - **Julia**: [100 Julia Exercises](https://github.com/RoyiAvital/Julia100Exercises).
 
 # More knowledge from exercises  
-## Exercise N9 - Code proof of a statement that if an array a is Fortran-contiguous, it's stored in column-major order in memory
+## Exercise N9 - Code proof of a statement that if an array is Fortran-contiguous, it's stored in column-major order in memory
 ```python
 import ctypes  
 import numpy as np  
@@ -133,7 +133,7 @@ Flexibility:
    - When using NumPy's `sum`, the second argument (`-1`) is treated as the `axis` parameter instead of an initial value.
    - Since `range(5)` is a one-dimensional iterable, the `sum` will compute the total of the elements without any influence from the `-1` parameter.
    - Calculation: `0 + 1 + 2 + 3 + 4 = 10`.
-## Exercise N27 
+## Exercise N27 - Expressions
 ```python
 import numpy as np
 Z = np.array([4, 3, 10, 2], dtype=np.int64)
@@ -214,7 +214,7 @@ print(data[1][1].flags.writeable)
 [('name', '<U10'), ('age', '<i4'), ('weight', '<f4')]
 False
 ```
-## Exercise N53
+## Exercise N53 - In-place type conversion
 ```python
 A = np.array([1.5, 2.7, 3.6, 4.44], dtype=np.float32)
 B = A.view(np.int32)
