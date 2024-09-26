@@ -252,3 +252,53 @@ print('B: ', B, B.dtype, B.ctypes.data)  # and A will read it as something corre
 A:  [1.5  2.7  3.6  4.44] float32 1745310614272
 B:  [1069547520 1076677837 1080452710 1083053179] int32 1745310614272
 ```
+## Exercise N61 - np.reshape(-1) vs np.ravel() vs np.flatten()
+```python
+import numpy as np
+import ctypes
+
+titles = ['x.reshape(-1)', 'x.ravel()', 'x.flatten()']
+x = np.random.randint(1, 100, (3, 4))
+print('x: \n', x)
+ys = [x.reshape(-1), x.ravel(), x.flatten()]
+for i, y in enumerate(ys):
+    print('\nmemory address of x: ', x.ctypes.data)
+    print('memory address of y('+titles[i]+'): ', y.ctypes.data)
+    y[i] = 1000
+    print('x: \n', x)
+    print('y: \n', y)
+```
+**Output**
+```
+x: 
+ [[27 21 66  1]
+ [45 63 80 16]
+ [83 99 46 93]]
+
+memory address of x:  1745255751280
+memory address of y(x.reshape(-1)):  1745255751280
+x: 
+ [[1000   21   66    1]
+ [  45   63   80   16]
+ [  83   99   46   93]]
+y: 
+ [1000   21   66    1   45   63   80   16   83   99   46   93]
+
+memory address of x:  1745255751280
+memory address of y(x.ravel()):  1745255751280
+x: 
+ [[1000 1000   66    1]
+ [  45   63   80   16]
+ [  83   99   46   93]]
+y: 
+ [1000 1000   66    1   45   63   80   16   83   99   46   93]
+
+memory address of x:  1745255751280
+memory address of y(x.flatten()):  1745255752368
+x: 
+ [[1000 1000   66    1]
+ [  45   63   80   16]
+ [  83   99   46   93]]
+y: 
+ [  27   21 1000    1   45   63   80   16   83   99   46   93]
+```
