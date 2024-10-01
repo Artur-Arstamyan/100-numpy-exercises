@@ -1,3 +1,6 @@
+# Created issues
+[Alternative solutions for Exercises N36, N81](https://github.com/rougier/numpy-100/issues/214#issue-2548498843)  
+[Exercise N62 - There is an unnecessary code, Exercise N80 - IndexError ](https://github.com/rougier/numpy-100/issues/215#issue-2552873975)  
 # More knowledge from exercises  
 ## Exercise N9 - Code proof of a statement that if an array is Fortran-contiguous, it's stored in column-major order in memory
 ```python
