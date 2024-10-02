@@ -3,7 +3,7 @@
 [Exercise N62 - There is an unnecessary code, Exercise N80 - IndexError ](https://github.com/rougier/numpy-100/issues/215#issue-2552873975)  
 # More knowledge from exercises  
 ## np.meshgrid  
-![Uploading np.meshgrid.PNG…]()
+![np meshgrid](https://github.com/user-attachments/assets/49489b5a-9ed0-43c6-8beb-fa25cc381bee)  
 ## Exercise N9 - Code proof of a statement that if an array is Fortran-contiguous, it's stored in column-major order in memory
 ```python
 import ctypes  
